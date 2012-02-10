@@ -49,31 +49,34 @@
 /** Check if slp error or not */
 #define TIZEN_ERROR_IS_PLATFORM_ERROR(x) (TIZEN_ERROR_MIN_PLATFORM_ERROR <= (x) && (x) < 0)
 
-/** Application Error Class (0xFFFFFE00) */
-#define TIZEN_ERROR_APPLICATION_CLASS -0x00000200 //0xFFFFFE00
-/** Base Error Class (0xFFFFFC00) */
-#define TIZEN_ERROR_BASE_CLASS -0x00000400 //0xFFFFFC00
-/** Content Error Class (0xFFFFF800) */
-#define TIZEN_ERROR_CONTENT_CLASS -0x00000800 //0xFFFFF800
-/** Location Error Class (0xFFFFF000) */
-#define TIZEN_ERROR_LOCATION_CLASS -0x00001000 //0xFFFFF000
-/** Multimedia Error Class (0xFFFFE000) */
-#define TIZEN_ERROR_MULTIMEDIA_CLASS -0x00002000 //0xFFFFE000
-/** Messaging Error Class (0xFFFFC000) */
-#define TIZEN_ERROR_MESSAGING_CLASS -0x00004000 //0xFFFFC000
-/** Network Error Class (0xFFFF8000) */
-#define TIZEN_ERROR_NETWORK_CLASS -0x00008000 //0xFFFF8000
-/** Social Error Class (0xFFFF0000) */
-#define TIZEN_ERROR_SOCIAL_CLASS -0x00010000 //0xFFFF0000
-/** System Error Class (0xFFFE0000) */
-#define TIZEN_ERROR_SYSTEM_CLASS -0x00020000 //0xFFFE0000
-/** Telephony Error Class (0xFFFC0000) */
-#define TIZEN_ERROR_TELEPHONY_CLASS -0x00040000 //0xFFFC0000
-/** UI Error class (0xFFF80000) */
-#define TIZEN_ERROR_UI_CLASS -0x0080000 // 0xFFF80000
-/** UIX Error class (0xFF000000) */
-#define TIZEN_ERROR_UIX_CLASS -0x0100000 // 0xFF000000
-
+/** Application Error Class */
+#define TIZEN_ERROR_APPLICATION_CLASS -0x00000200
+/** Base Error Class */
+#define TIZEN_ERROR_BASE_CLASS -0x00000400
+/** Content Error Class */
+#define TIZEN_ERROR_CONTENT_CLASS -0x00000800
+/** Location Error Class */
+#define TIZEN_ERROR_LOCATION_CLASS -0x00001000
+/** Multimedia Error Class */
+#define TIZEN_ERROR_MULTIMEDIA_CLASS -0x00002000
+/** Messaging Error Class */
+#define TIZEN_ERROR_MESSAGING_CLASS -0x00004000
+/** Network Error Class */
+#define TIZEN_ERROR_NETWORK_CLASS -0x00008000
+/** Social Error Class */
+#define TIZEN_ERROR_SOCIAL_CLASS -0x00010000
+/** System Error Class */
+#define TIZEN_ERROR_SYSTEM_CLASS -0x00020000
+/** Telephony Error Class */
+#define TIZEN_ERROR_TELEPHONY_CLASS -0x00040000
+/** UI Error class */
+#define TIZEN_ERROR_UI_CLASS -0x00080000
+/** UIX Error class */
+#define TIZEN_ERROR_UIX_CLASS -0x00100000
+/** AD Error class */
+#define TIZEN_ERROR_AD_CLASS -0x00200000
+/** Web Error class */
+#define TIZEN_ERROR_WEB_CLASS -0x00400000
 
 typedef enum
 {
