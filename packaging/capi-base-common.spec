@@ -3,7 +3,7 @@ Summary:    TO BE FILLED IN
 Version:    0.1.0
 Release:    1
 Group:      TO_BE/FILLED_IN
-License:    TO BE FILLED IN
+License:    Apache-2.0
 Source0:    %{name}-%{version}.tar.gz
 BuildRequires:  cmake
 
@@ -13,7 +13,7 @@ BuildRequires:  cmake
 
 
 %prep
-%setup -q
+%setup -q 
 
 
 %build
