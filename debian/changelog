@@ -1,9 +1,34 @@
+capi-base-common (0.1.0-7) unstable; urgency=low
+
+  * Add TIZEN_ERROR_DRM_CLASS
+  * Git: api/common
+  * Tag: capi-base-common_0.1.0-7
+
+ -- WonYoung Choi <wy80.choi@samsung.com>  Mon, 19 Mar 2012 19:05:23 +0900
+
+capi-base-common (0.1.0-6) unstable; urgency=low
+
+  * Add TIZEN_ERROR_NO_DATA
+  * Git: api/common 
+  * Tag: capi-base-common_0.1.0-6
+
+ -- WonYoung Choi <wy80.choi@samsung.com>  Mon, 27 Feb 2012 15:55:33 +0900
+
 capi-base-common (0.1.0-5) unstable; urgency=low
 
   * Add TIZEN_ERROR_WEB_CLASS
-  * Add AD error class
+  * Git: api/common
+  * Tag: capi-base-common_0.1.0-5
 
  -- Junghyuk Park <junghyuk.park@samsung.com>  Thu, 02 Feb 2012 17:43:07 +0900
+
+capi-base-common (0.1.0-4) unstable; urgency=low
+
+  * Added AD error class
+  * Git: api/common
+  * Tag: capi-base-common_0.1.0-4
+
+ -- Junghyuk Park <junghyuk.park@samsung.com>  Mon, 30 Jan 2012 14:00:33 +0900
 
 capi-base-common (0.1.0-3) unstable; urgency=low
 

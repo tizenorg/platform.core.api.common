@@ -77,6 +77,8 @@
 #define TIZEN_ERROR_AD_CLASS -0x00200000
 /** Web Error class */
 #define TIZEN_ERROR_WEB_CLASS -0x00400000
+/** DRM Error class */
+#define TIZEN_ERROR_DRM_CLASS -0x00800000
 
 typedef enum
 {
@@ -111,6 +113,7 @@ typedef enum
     TIZEN_ERROR_FILE_NO_SPACE_ON_DEVICE = -ENOSPC, /**< No space left on device */
     TIZEN_ERROR_ILLEGAL_SEEK = -ESPIPE, /**< Illegal seek */
     TIZEN_ERROR_READ_ONLY_FILESYSTEM = -EROFS, /**< Read-only file system */
+    TIZEN_ERROR_NO_DATA = -ENODATA, /**< No data available */
 
     TIZEN_ERROR_TOO_MANY_LINKS = -EMLINK, /**< Too many links */
     TIZEN_ERROR_BROKEN_PIPE = -EPIPE, /**< Broken pipe */
