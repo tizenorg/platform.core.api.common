@@ -5,6 +5,7 @@ Release:    7
 Group:      TO_BE/FILLED_IN
 License:    Apache-2.0
 Source0:    %{name}-%{version}.tar.gz
+Source1001: packaging/capi-base-common.manifest 
 BuildRequires:  cmake
 
 %description
@@ -24,6 +25,7 @@ Common header files of Tizen Native API
 
 
 %build
+cp %{SOURCE1001} .
 cmake . -DCMAKE_INSTALL_PREFIX=/usr
 
 
@@ -36,8 +38,10 @@ rm -rf %{buildroot}
 
 
 %files
+%manifest capi-base-common.manifest
 
 %files devel
+%manifest capi-base-common.manifest
 /usr/include/*.h
 /usr/lib/pkgconfig/capi-base-common.pc
 
