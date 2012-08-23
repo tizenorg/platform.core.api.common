@@ -79,6 +79,8 @@
 #define TIZEN_ERROR_WEB_CLASS -0x00400000
 /** DRM Error class */
 #define TIZEN_ERROR_DRM_CLASS -0x00800000
+/** Account Error class */
+#define TIZEN_ERROR_ACCOUNT_CLASS -0x01000000
 
 typedef enum
 {
