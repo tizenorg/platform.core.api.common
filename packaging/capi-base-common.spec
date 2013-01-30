@@ -1,44 +1,38 @@
-Name:       capi-base-common
-Summary:    Common header files of Tizen Native API
-Version: 0.1.0
-Release:    8
-Group:      TO_BE/FILLED_IN
-License:    Apache-2.0
-Source0:    %{name}-%{version}.tar.gz
+Name:           capi-base-common
+Version:        0.1.0
+Release:        8
+License:        Apache-2.0
+Summary:        Common header files of Tizen Native API
+Group:          API/C API
+Source0:        %{name}-%{version}.tar.gz
 BuildRequires:  cmake
 
 %description
 Common header files of Tizen Native API
 
-  
-%package devel  
-Summary:  Common header files of Tizen Native API (Development)  
-Group:    TO_BE/FILLED_IN  
-Requires: %{name} = %{version}-%{release}  
-  
+
+%package devel
+Summary:        Common header files of Tizen Native API (Development)
+Group:          API/C API
+Requires:       %{name} = %{version}
+
 %description devel
 Common header files of Tizen Native API
 
 %prep
 %setup -q
 
-
 %build
-cmake . -DCMAKE_INSTALL_PREFIX=/usr
-
-
-make %{?jobs:-j%jobs}
+%cmake .
+make %{?_smp_mflags}
 
 %install
-rm -rf %{buildroot}
 %make_install
-
-
 
 %files
 
 %files devel
-/usr/include/*.h
-/usr/lib/pkgconfig/capi-base-common.pc
+%{_includedir}/*.h
+%{_libdir}/pkgconfig/capi-base-common.pc
 
 
