@@ -2,8 +2,6 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT("capi-base-common")
 SET(fw_name "capi-base-common")
-SET(CMAKE_INSTALL_PREFIX "/usr")
-SET(PREFIX ${CMAKE_INSTALL_PREFIX})
 SET(VERSION ${FULLVER})
 SET(PC_LDFLAGS -l${fw_name})
 
