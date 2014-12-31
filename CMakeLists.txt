@@ -9,7 +9,7 @@ INSTALL(FILES include/tizen.h DESTINATION include)
 INSTALL(FILES include/tizen_error.h DESTINATION include)
 INSTALL(FILES include/tizen_type.h DESTINATION include)
 
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/capi-base-common.pc DESTINATION lib/pkgconfig)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/capi-base-common.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 SET(INC_DIR include)
 INCLUDE_DIRECTORIES(${INC_DIR})
 

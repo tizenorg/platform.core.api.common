@@ -3,7 +3,7 @@
 
 prefix=/usr
 exec_prefix=${prefix}
-libdir=${prefix}/lib
+libdir=@LIB_INSTALL_DIR@
 includedir=${prefix}/include
 
 Name: capi-base-common
