@@ -30,7 +30,7 @@
 #define TIZEN_ERROR_MAX_PLATFORM_ERROR 0
 #define TIZEN_ERROR_MIN_PLATFORM_ERROR (-1073741824LL) /* = -2147483648 / 2 */
 
-/* Use thisgit clone ssh://sunggyu.choi@168.219.209.56:29418/kiran/framework/api/common constant macro as the value of the first module specific error */
+/* Use this constant macro as the value of the first module specific error */
 #define TIZEN_ERROR_MIN_MODULE_ERROR (-2147483648LL)
 
 /* Module errors cannot be greater than the following constant */
