@@ -20,6 +20,10 @@
 
 #include <errno.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @addtogroup CAPI_COMMON_ERROR
  * @{
@@ -364,5 +368,9 @@ char* get_error_message(int err);
 /**
  * @}
  */
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif         /**<__TIZEN_COMMON_ERROR_H__ */
