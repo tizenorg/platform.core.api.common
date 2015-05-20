@@ -84,6 +84,10 @@ extern "C" {
 
 /* Tizen Account Error */
 #define TIZEN_ERROR_ACCOUNT             -0x01000000
+/* Tizen Account Oauth Error */
+#define TIZEN_ERROR_ACCOUNT_OAUTH       -0x01010000
+/* Tizen SYNC MANAGER Error */
+#define TIZEN_ERROR_SYNC_MANAGER        -0x01020000
 /* Tizen Application Error */
 #define TIZEN_ERROR_APPLICATION         -0x01100000
 /* Tizen Application Manager Error */
@@ -106,6 +110,8 @@ extern "C" {
 #define TIZEN_ERROR_DATA_CONTROL        -0x01190000
 /* Tizen Service Application Error */
 #define TIZEN_ERROR_SERVICE_APPLICATION  -0x01200000
+/* Tizen MINICONTROL Error */
+#define TIZEN_ERROR_MINICONTROL         -0x01210000
 /* Tizen Utility ICU Error */
 #define TIZEN_ERROR_UTILITY_ICU		-0x01500000
 /* Tizen Mime Type Error */
@@ -141,7 +147,9 @@ extern "C" {
 /* Tizen Radio Error */
 #define TIZEN_ERROR_RADIO	        -0x019A0000
 /* Tizen MEDIA CODEC Error */
-#define TIZEN_ERROR_MEDIACODEC         -0x019B0000
+#define TIZEN_ERROR_MEDIACODEC          -0x019B0000
+/* Tizen Metadata Editor Error */
+#define TIZEN_ERROR_METADATA_EDITOR     -0x019C0000
 /* Tizen Bluetooth Error */
 #define TIZEN_ERROR_BLUETOOTH		-0x01C00000
 /* Tizen Connection Error */
@@ -156,6 +164,8 @@ extern "C" {
 #define TIZEN_ERROR_WIFI		-0x01C50000
 /* Tizen Wifi Direct Error */
 #define TIZEN_ERROR_WIFI_DIRECT		-0x01C60000
+/* Tizen Smart Card Error */
+#define TIZEN_ERROR_SMARTCARD          -0x01C70000
 /* Tizen Privacy Manager Error */
 #define TIZEN_ERROR_PRIVACY_MANAGER	-0x01E00000
 /* Tizen Key Manager Error */
@@ -188,6 +198,10 @@ extern "C" {
 #define TIZEN_ERROR_SYSTEM_RESOURCE	-0x02470000
 /* Tizen Context Error */
 #define TIZEN_ERROR_CONTEXT		-0x02480000
+/* Tizen Health Error */
+#define TIZEN_ERROR_HEALTH		-0x02490000
+/* Tizen Feedback Error */
+#define TIZEN_ERROR_FEEDBACK            -0x024A0000
 /* Tizen Telephony Error */
 #define TIZEN_ERROR_TELEPHONY		-0x02600000
 /* Tizen EFL Util Error */
@@ -198,23 +212,35 @@ extern "C" {
 #define TIZEN_ERROR_NATIVE_BUFFER	-0x02820000
 /* Tizen Buffer Manager Error */
 #define TIZEN_ERROR_TBM			-0x02830000
+/* Tizen EOM Error */
+#define TIZEN_ERROR_EOM       		-0x02840000
 /* Tizen Download Error */
 #define TIZEN_ERROR_DOWNLOAD		-0x02A00000
 /* Tizen WebView Error */
 #define TIZEN_ERROR_WEBVIEW		-0x02A10000
-/* Tizen Location Manager */
+/* Tizen Location Manager Error */
 #define TIZEN_ERROR_LOCATION_MANAGER	-0x02C00000
+/* Tizen Geofence Manager Error */
+#define TIZEN_ERROR_GEOFENCE_MANAGER    -0x02C10000
+/* Tizen Maps Service Error */
+#define TIZEN_ERROR_MAPS_SERVICE -0x02C20000
 /* Tizen STT Error */
 #define TIZEN_ERROR_STT			-0x02F00000
 /* Tizen TTS Error */
 #define TIZEN_ERROR_TTS			-0x02F10000
-
-
+/* Tizen IME Error */
+#define TIZEN_ERROR_IME                 -0x02F20000
+/* Tizen Service Adaptor Error */
+#define TIZEN_ERROR_SERVICE_ADAPTOR     -0x02F30000
+/* Tizen Widget Error */
+#define TIZEN_ERROR_WIDGET              -0x02F40000
+/* Tizen Voice Control Error */
+#define TIZEN_ERROR_VOICE_CONTROL       -0x02F50000
 
 
 /**
  * @brief Enumeration for tizen errors.
- * @since_tizen 2.3
+ * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
 */
 typedef enum
@@ -331,7 +357,7 @@ typedef enum
 
 /**
  * @brief Gets the last error code in the thread.
- * @since_tizen 2.3
+ * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @details This function retrieves the last error code which is set by set_last_result()
  *
@@ -344,7 +370,7 @@ int get_last_result(void);
 
 /**
  * @brief Sets the last error code to be returned in the thread.
- * @since_tizen 2.3
+ * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] err The error code to be returned
  *
@@ -355,7 +381,7 @@ void set_last_result(int err);
 
 /**
  * @brief Gets the message for given the error code.
- * @since_tizen 2.3
+ * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @remark This function returns a static pointer; subsequent calls will overwrite it.
  * @param[in] err The error value to be returned
