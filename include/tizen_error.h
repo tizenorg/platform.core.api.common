@@ -150,6 +150,8 @@ extern "C" {
 #define TIZEN_ERROR_MEDIACODEC          -0x019B0000
 /* Tizen Metadata Editor Error */
 #define TIZEN_ERROR_METADATA_EDITOR     -0x019C0000
+/* Tizen Media Vision Error */
+#define TIZEN_ERROR_MEDIA_VISION        -0x019D0000
 /* Tizen Bluetooth Error */
 #define TIZEN_ERROR_BLUETOOTH		-0x01C00000
 /* Tizen Connection Error */
