@@ -150,6 +150,8 @@ extern "C" {
 #define TIZEN_ERROR_MEDIACODEC          -0x019B0000
 /* Tizen Metadata Editor Error */
 #define TIZEN_ERROR_METADATA_EDITOR     -0x019C0000
+/* Tizen Media Vision Error */
+#define TIZEN_ERROR_MEDIA_VISION        -0x019D0000
 /* Tizen Bluetooth Error */
 #define TIZEN_ERROR_BLUETOOTH		-0x01C00000
 /* Tizen Connection Error */
@@ -350,8 +352,7 @@ typedef enum
     TIZEN_ERROR_TIMED_OUT, /**< Time out */
     TIZEN_ERROR_NOT_SUPPORTED, /**< Not supported */
     TIZEN_ERROR_USER_NOT_CONSENTED, /**< Not Consented */
-    TIZEN_ERROR_END_OF_COLLECTION,
-    TIZEN_ERROR_NOT_SUPPORT_API = TIZEN_ERROR_NOT_SUPPORTED /**< TIZEN_ERROR_NOT_SUPPORT_API is deprecated */
+    TIZEN_ERROR_END_OF_COLLECTION
 } tizen_error_e;
 
 

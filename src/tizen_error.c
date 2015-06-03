@@ -1,3 +1,20 @@
+/*
+ * Copyright (c) 2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. 
+ */
+
+
 #include <stdlib.h>
 #include <string.h>
 #include "tizen.h"
@@ -505,6 +522,12 @@ ERR_ENTRY("IME_MANAGER_ERROR_OPERATION_FAILED",TIZEN_ERROR_IME | 0x0010 ,"Operat
 	ERR_ENTRY("CONTEXT_TRIGGER_ERROR_INVALID_RULE",TIZEN_ERROR_CONTEXT | 0x07 ,"Invalid rule"),
 	ERR_ENTRY("CONTEXT_TRIGGER_ERROR_RULE_NOT_EXIST",TIZEN_ERROR_CONTEXT | 0x08 ,"Rule does not exist"),
 #endif
+#if defined (TIZEN_ERROR_MEDIA_VISION)
+        ERR_ENTRY("MEDIA_VISION_ERROR_NOT_SUPPORTED_FORMAT",TIZEN_ERROR_MEDIA_VISION | 0x01 ,"Not supported format"),
+        ERR_ENTRY("MEDIA_VISION_ERROR_INTERNAL",TIZEN_ERROR_MEDIA_VISION | 0x02 ,"Internal error"),
+        ERR_ENTRY("MEDIA_VISION_ERROR_INVALID_DATA",TIZEN_ERROR_MEDIA_VISION | 0x03 ,"Invalid data"),
+#endif
+
 	{0,NULL,NULL}
 };
 
