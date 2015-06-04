@@ -353,6 +353,7 @@ typedef enum
     TIZEN_ERROR_NOT_SUPPORTED, /**< Not supported */
     TIZEN_ERROR_USER_NOT_CONSENTED, /**< Not Consented */
     TIZEN_ERROR_END_OF_COLLECTION
+    TIZEN_ERROR_NOT_SUPPORT_API = TIZEN_ERROR_NOT_SUPPORTED /**< TIZEN_ERROR_NOT_SUPPORT_API is deprecated */
 } tizen_error_e;
 
 
