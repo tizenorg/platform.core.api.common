@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+
 #include <stdlib.h>
 #include <string.h>
 #include "tizen.h"
@@ -23,13 +24,15 @@
 
 #define ERR_ENTRY(name, value, msg) {value, name, msg}
 
-typedef struct tizen_err_info {
+typedef struct tizen_err_info
+{
     int value;
     const char *name;
     const char *msg;
 } err_info;
 
-static err_info err_list[] = {
+static err_info err_list[] =
+{
     ERR_ENTRY("TIZEN_ERROR_UNKNOWN", TIZEN_ERROR_UNKNOWN, "Unknown error"),
     ERR_ENTRY("TIZEN_ERROR_TIMED_OUT", TIZEN_ERROR_TIMED_OUT, "Time out"),
     ERR_ENTRY("TIZEN_ERROR_NOT_SUPPORTED", TIZEN_ERROR_NOT_SUPPORTED, "Not supported"),
@@ -50,9 +53,16 @@ static err_info err_list[] = {
     ERR_ENTRY("ACCOUNT_ERROR_DATABASE_BUSY", TIZEN_ERROR_ACCOUNT | 0x10, "SQLite busy handler expired"),
 #endif
 #if defined(TIZEN_ERROR_APPLICATION)
+	ERR_ENTRY("APP_ERROR_INVALID_CONTEXT",TIZEN_ERROR_APPLICATION | 0x01,"Invalid application context"),
+	ERR_ENTRY("ALARM_ERROR_INVALID_TIME",TIZEN_ERROR_APPLICATION | 0x05,"Invalid time"),
+	ERR_ENTRY("ALARM_ERROR_INVALID_DATE",TIZEN_ERROR_APPLICATION | 0x06,"Invalid date"),
+	ERR_ENTRY("ALARM_ERROR_CONNECTION_FAIL",TIZEN_ERROR_APPLICATION | 0x07,"The alarm service connection failed"),
+	ERR_ENTRY("ALARM_ERROR_NOT_PERMITTED_APP",TIZEN_ERROR_APPLICATION | 0x08,"Application is not permitted"),
+	ERR_ENTRY("APP_CONTROL_ERROR_APP_NOT_FOUND",TIZEN_ERROR_APPLICATION | 0x21,"The application is not found"),
+	ERR_ENTRY("APP_CONTROL_ERROR_INVALID_DATA_TYPE",TIZEN_ERROR_APPLICATION | 0x22,"Invalid data type"),
+	ERR_ENTRY("APP_CONTROL_ERROR_LAUNCH_REJECTED",TIZEN_ERROR_APPLICATION | 0x23,"The application cannot be launched now"),
     ERR_ENTRY("APP_CONTROL_ERROR_LAUNCH_FAILED", TIZEN_ERROR_APPLICATION | 0x24, "Internal launch error"),
     ERR_ENTRY("PREFERENCE_ERROR_NO_KEY", TIZEN_ERROR_APPLICATION | 0x30, "Required key not available"),
-    ERR_ENTRY("APP_ERROR_INVALID_CONTEXT", TIZEN_ERROR_APPLICATION | 0x01, "Invalid application context"),
 #endif
 #if defined(TIZEN_ERROR_APPLICATION_MANAGER)
     ERR_ENTRY("APP_MANAGER_ERROR_NO_SUCH_APP", TIZEN_ERROR_APPLICATION_MANAGER | 0x01, "No such application"),
@@ -93,8 +103,6 @@ static err_info err_list[] = {
     ERR_ENTRY("SHORTCUT_ERROR_FAULT", TIZEN_ERROR_SHORTCUT | 0x0004, "Failed to add a shortcut. Unrecoverable error"),
     ERR_ENTRY("SHORTCUT_ERROR_COMM", TIZEN_ERROR_SHORTCUT | 0x0040, "Connection is not established. or there is a problem in the communication"),
 #endif
-#if defined(TIZEN_ERROR_UI_GADGET)
-#endif
 #if defined(TIZEN_ERROR_BUNDLE)
     ERR_ENTRY("BUNDLE_ERROR_KEY_EXISTS", TIZEN_ERROR_BUNDLE | 0x01, "Key exists"),
 #endif
@@ -116,6 +124,28 @@ static err_info err_list[] = {
     ERR_ENTRY("I18N_ERROR_NO_WRITE_PERMISSION", TIZEN_ERROR_UTILITY_ICU | 0x0A, "Attempt to modify read-only or constant data"),
     ERR_ENTRY("I18N_ERROR_RESOURCE_TYPE_MISMATCH", TIZEN_ERROR_UTILITY_ICU | 0x0B, "An operation is requested over a resource that does not support it"),
     ERR_ENTRY("I18N_ERROR_TOO_MANY_ALIASES", TIZEN_ERROR_UTILITY_ICU | 0x0C, "Too many aliases in the path to the requested resource"),
+	
+	ERR_ENTRY("I18N_ERROR_MESSAGE_PARSE", TIZEN_ERROR_UTILITY_ICU | 0x0D ,"Unable to parse a message (message format)"),
+	ERR_ENTRY("I18N_ERROR_PARSE", TIZEN_ERROR_UTILITY_ICU | 0x0E ,"Equivalent to Java ParseException"),
+	ERR_ENTRY("I18N_ERROR_TRUNCATED_CHAR_FOUND", TIZEN_ERROR_UTILITY_ICU | 0x0F ,"Character conversion: Incomplete input sequence"),
+	ERR_ENTRY("I18N_ERROR_ILLEGAL_CHAR_FOUND", TIZEN_ERROR_UTILITY_ICU | 0x10 ,"Character conversion: Illegal input sequence/combination of input units"),
+	ERR_ENTRY("I18N_ERROR_INVALID_TABLE_FORMAT", TIZEN_ERROR_UTILITY_ICU | 0x11 ,"Conversion table file found, but corrupted"),
+	ERR_ENTRY("I18N_ERROR_INVALID_TABLE_FILE", TIZEN_ERROR_UTILITY_ICU | 0x12 ,"Conversion table file not found"),
+	ERR_ENTRY("I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE", TIZEN_ERROR_UTILITY_ICU | 0x13 ,"ISO-2022 illlegal escape sequence"),
+	ERR_ENTRY("I18N_ERROR_UNSUPPORTED_ESCAPE_SEQUENCE", TIZEN_ERROR_UTILITY_ICU | 0x14 ,"ISO-2022 unsupported escape sequence"),
+	ERR_ENTRY("I18N_ERROR_NO_SPACE_AVAILABLE", TIZEN_ERROR_UTILITY_ICU | 0x15 ,"No space available for in-buffer expansion for Arabic shaping"),
+	ERR_ENTRY("I18N_ERROR_CE_NOT_FOUND", TIZEN_ERROR_UTILITY_ICU | 0x16 ,"Currently used only while setting variable top, but can be used generally"),
+	ERR_ENTRY("I18N_ERROR_PRIMARY_TOO_LONG", TIZEN_ERROR_UTILITY_ICU | 0x17 ,"User tried to set variable top to a primary that is longer than two bytes"),
+	ERR_ENTRY("I18N_ERROR_STATE_TOO_OLD", TIZEN_ERROR_UTILITY_ICU | 0x18 ,"ICU cannot construct a service from this state, as it is no longer supported"),
+	ERR_ENTRY("I18N_ERROR_ENUM_OUT_OF_SYNC", TIZEN_ERROR_UTILITY_ICU | 0x19 ,"UEnumeration out of sync with underlying collection"),
+	ERR_ENTRY("I18N_ERROR_INVARIANT_CONVERSION", TIZEN_ERROR_UTILITY_ICU | 0x1A ,"Unable to convert a UChar* string to char* with the invariant converter"),
+	ERR_ENTRY("I18N_ERROR_INVALID_STATE", TIZEN_ERROR_UTILITY_ICU | 0x1B ,"Requested operation can not be completed with ICU in its current state"),
+	ERR_ENTRY("I18N_ERROR_MALFORMED_SET", TIZEN_ERROR_UTILITY_ICU | 0x1C ,"A UnicodeSet pattern is invalid. @if MOBILE"),
+	ERR_ENTRY("I18N_WARNING_STRING_NOT_TERMINATED", TIZEN_ERROR_UTILITY_ICU | 0x1D ,"String not terminated with NULL. @if MOBILE"),
+	ERR_ENTRY("I18N_ERROR_STD3_ASCII_RULES", TIZEN_ERROR_UTILITY_ICU | 0x1E ,"Argument does not satisfy STD3 rules"),
+	ERR_ENTRY("I18N_ERROR_UNASSIGNED", TIZEN_ERROR_UTILITY_ICU | 0x1F ,"Unassigned code points are found"),
+	ERR_ENTRY("I18N_WARNING_SORT_KEY_TOO_SHORT", TIZEN_ERROR_UTILITY_ICU | 0x20 ,"Number of levels requested in getBound is higher than the number of levels in the sort key"),
+
 #endif
 #if defined(TIZEN_ERROR_MIME_TYPE)
 #endif
@@ -148,6 +178,8 @@ static err_info err_list[] = {
     ERR_ENTRY("AUDIO_IO_ERROR_DEVICE_NOT_CLOSED", TIZEN_ERROR_AUDIO_IO | 0x02, "Device close error"),
     ERR_ENTRY("AUDIO_IO_ERROR_INVALID_BUFFER", TIZEN_ERROR_AUDIO_IO | 0x03, "Invalid buffer pointer"),
     ERR_ENTRY("AUDIO_IO_ERROR_SOUND_POLICY", TIZEN_ERROR_AUDIO_IO | 0x04, "Sound policy error"),
+    ERR_ENTRY("AUDIO_IO_ERROR_INVALID_STATE", TIZEN_ERROR_AUDIO_IO | 0x05, "Invalid statea"),
+    ERR_ENTRY("AUDIO_IO_ERROR_NOT_SUPPORTED_TYPE", TIZEN_ERROR_AUDIO_IO | 0x06, "Not supported stream type"),
 #endif
 #if defined(TIZEN_ERROR_CAMERA)
     ERR_ENTRY("CAMERA_ERROR_INVALID_STATE", TIZEN_ERROR_CAMERA | 0x02, "Invalid state"),
@@ -159,6 +191,8 @@ static err_info err_list[] = {
     ERR_ENTRY("CAMERA_ERROR_SOUND_POLICY_BY_CALL", TIZEN_ERROR_CAMERA | 0x0a, "Blocked by Audio Session Manager - CALL"),
     ERR_ENTRY("CAMERA_ERROR_SOUND_POLICY_BY_ALARM", TIZEN_ERROR_CAMERA | 0x0b, "Blocked by Audio Session Manager - ALARM"),
     ERR_ENTRY("CAMERA_ERROR_ESD", TIZEN_ERROR_CAMERA | 0x0c, "ESD situation"),
+    ERR_ENTRY("CAMERA_ERROR_RESOURCE_CONFLICT", TIZEN_ERROR_CAMERA | 0x0d, "Blocked by resource conflict"),
+
 #endif
 #if defined(TIZEN_ERROR_IMAGE_UTIL)
     ERR_ENTRY("IMAGE_UTIL_ERROR_NOT_SUPPORTED_FORMAT", TIZEN_ERROR_IMAGE_UTIL | 0x01, "Not supported format"),
@@ -179,30 +213,36 @@ static err_info err_list[] = {
     ERR_ENTRY("PLAYER_ERROR_DRM_FUTURE_USE", TIZEN_ERROR_PLAYER | 0x2a, "License for future use"),
     ERR_ENTRY("PLAYER_ERROR_DRM_NOT_PERMITTED", TIZEN_ERROR_PLAYER | 0x2b, "Format not permitted"),
     ERR_ENTRY("PLAYER_ERROR_RESOURCE_LIMIT", TIZEN_ERROR_PLAYER | 0x2c, "Resource limit"),
+    ERR_ENTRY("PLAYER_ERROR_SERVICE_DISCONNECTED", TIZEN_ERROR_PLAYER | 0x2d, "Socket connection lost"),
+
 #endif
 #if defined(TIZEN_ERROR_RECORDER)
-    ERR_ENTRY("RECORDER_ERROR_INVALID_STATE", TIZEN_ERROR_RECORDER | 0x02, "Invalid state"),
-    ERR_ENTRY("RECORDER_ERROR_DEVICE", TIZEN_ERROR_RECORDER | 0x04, "Device error "),
-    ERR_ENTRY("RECORDER_ERROR_SOUND_POLICY", TIZEN_ERROR_RECORDER | 0x06, "Blocked by Audio Session Manager"),
-    ERR_ENTRY("RECORDER_ERROR_SECURITY_RESTRICTED", TIZEN_ERROR_RECORDER | 0x07, "Restricted by security system policy"),
-    ERR_ENTRY("RECORDER_ERROR_SOUND_POLICY_BY_CALL", TIZEN_ERROR_RECORDER | 0x08, "Blocked by Audio Session Manager - CALL"),
-    ERR_ENTRY("RECORDER_ERROR_SOUND_POLICY_BY_ALARM", TIZEN_ERROR_RECORDER | 0x09, "Blocked by Audio Session Manager - ALARM"),
-    ERR_ENTRY("RECORDER_ERROR_ESD", TIZEN_ERROR_RECORDER | 0x0a, "ESD situation"),
-    ERR_ENTRY("RECORDER_ERROR_OUT_OF_STORAGE", TIZEN_ERROR_RECORDER | 0x0b, "Out of storage"),
+	ERR_ENTRY("RECORDER_ERROR_INVALID_STATE", TIZEN_ERROR_RECORDER | 0x12 ,"Invalid state"),
+	ERR_ENTRY("RECORDER_ERROR_DEVICE", TIZEN_ERROR_RECORDER | 0x14 ,"Device error "),
+	ERR_ENTRY("RECORDER_ERROR_SOUND_POLICY", TIZEN_ERROR_RECORDER | 0x16 ,"Blocked by Audio Session Manager"),
+	ERR_ENTRY("RECORDER_ERROR_SECURITY_RESTRICTED", TIZEN_ERROR_RECORDER | 0x17 ,"Restricted by security system policy"),
+	ERR_ENTRY("RECORDER_ERROR_SOUND_POLICY_BY_CALL", TIZEN_ERROR_RECORDER | 0x18 ,"Blocked by Audio Session Manager - CALL"),
+	ERR_ENTRY("RECORDER_ERROR_SOUND_POLICY_BY_ALARM", TIZEN_ERROR_RECORDER | 0x19 ,"Blocked by Audio Session Manager - ALARM"),
+	ERR_ENTRY("RECORDER_ERROR_ESD", TIZEN_ERROR_RECORDER | 0x1a ,"ESD situation"),
+	ERR_ENTRY("RECORDER_ERROR_OUT_OF_STORAGE", TIZEN_ERROR_RECORDER | 0x1b ,"Out of storage"),
+	ERR_ENTRY("RECORDER_ERROR_RESOURCE_CONFLICT", TIZEN_ERROR_RECORDER | 0x1c ,"Blocked by resource conflict"),
 #endif
 #if defined(TIZEN_ERROR_SOUND_MANAGER)
 
     ERR_ENTRY("SOUND_MANAGER_ERROR_INTERNAL", TIZEN_ERROR_SOUND_MANAGER | 0x01, "Internal error inside the sound system"),
     ERR_ENTRY("SOUND_MANAGER_ERROR_POLICY", TIZEN_ERROR_SOUND_MANAGER | 0x02, "Noncompliance with the sound system policy"),
     ERR_ENTRY("SOUND_MANAGER_ERROR_NO_PLAYING_SOUND", TIZEN_ERROR_SOUND_MANAGER | 0x03, "No playing sound"),
+    ERR_ENTRY("SOUND_MANAGER_ERROR_INVALID_STATE", TIZEN_ERROR_SOUND_MANAGER | 0x04, "Invalid state"),
 #endif
 #if defined(TIZEN_ERROR_TONE_PLAYER)
+    ERR_ENTRY("TONE_PLAYER_ERROR_NOT_SUPPORTED_TYPE", TIZEN_ERROR_TONE_PLAYER | 0x01, "Not supported"),
 #endif
 #if defined(TIZEN_ERROR_VIDEO_UTIL)
     ERR_ENTRY("VIDEO_UTIL_ERROR_NOT_SUPPORTED_FORMAT", TIZEN_ERROR_VIDEO_UTIL | 0x01, "Not supported format"),
 #endif
 #if defined(TIZEN_ERROR_WAV_PLAYER)
     ERR_ENTRY("WAV_PLAYER_ERROR_FORMAT_NOT_SUPPORTED", TIZEN_ERROR_WAV_PLAYER | 0x01, "Format not supported"),
+    ERR_ENTRY("WAV_PLAYER_ERROR_NOT_SUPPORTED_TYPE", TIZEN_ERROR_WAV_PLAYER | 0x02, "Not supported"),
 #endif
 #if defined(TIZEN_ERROR_RADIO)
     ERR_ENTRY("RADIO_ERROR_INVALID_STATE", TIZEN_ERROR_RADIO | 0x01, "Invalid state"),
@@ -224,9 +264,10 @@ static err_info err_list[] = {
     ERR_ENTRY("MEDIACODEC_ERROR_NOT_SUPPORTED_FORMAT", TIZEN_ERROR_MEDIACODEC | 0x0b, "Not supported format "),
     ERR_ENTRY("MEDIACODEC_ERROR_BUFFER_NOT_AVAILABLE", TIZEN_ERROR_MEDIACODEC | 0x0c, "Not available buffer"),
     ERR_ENTRY("MEDIACODEC_ERROR_OVERFLOW_INBUFFER", TIZEN_ERROR_MEDIACODEC | 0x0d, "Overflow input buffer"),
-    ERR_ENTRY("MEDIACODEC_ERROR_RESOURCE_OVERLOADED", TIZEN_ERROR_MEDIACODEC | 0x0e, "Exceed the instance limt"),
+	ERR_ENTRY("MEDIACODEC_ERROR_RESOURCE_OVERLOADED", TIZEN_ERROR_MEDIACODEC | 0x0e ,"Exceed the instance limit"),
 #endif
 #if defined(TIZEN_ERROR_BLUETOOTH)
+	ERR_ENTRY("BT_ERROR_NOT_INITIALIZED", TIZEN_ERROR_BLUETOOTH | 0x0101 ,"Local adapter not initialized"),
     ERR_ENTRY("BT_ERROR_NOT_ENABLED", TIZEN_ERROR_BLUETOOTH | 0x0102, "Local adapter not enabled"),
     ERR_ENTRY("BT_ERROR_ALREADY_DONE", TIZEN_ERROR_BLUETOOTH | 0x0103, "Operation already done"),
     ERR_ENTRY("BT_ERROR_OPERATION_FAILED", TIZEN_ERROR_BLUETOOTH | 0x0104, "Operation failed"),
@@ -268,8 +309,6 @@ static err_info err_list[] = {
     ERR_ENTRY("NFC_ERROR_TAG_NOT_SUPPORTED", TIZEN_ERROR_NFC | 0x0f, "Tag is not supported"),
     ERR_ENTRY("NFC_ERROR_AID_ALREADY_REGISTERED", TIZEN_ERROR_NFC | 0x10, "AID already registered"),
 #endif
-#if defined(TIZEN_ERROR_SERIAL)
-#endif
 #if defined(TIZEN_ERROR_TETHERING)
     ERR_ENTRY("TETHERING_ERROR_NOT_ENABLED", TIZEN_ERROR_TETHERING | 0x0501, "Not enabled"),
     ERR_ENTRY("TETHERING_ERROR_OPERATION_FAILED", TIZEN_ERROR_TETHERING | 0x0502, "Operation failed"),
@@ -296,8 +335,6 @@ static err_info err_list[] = {
     ERR_ENTRY("WIFI_DIRECT_ERROR_ALREADY_INITIALIZED", TIZEN_ERROR_WIFI_DIRECT | 0x09, "Already initialized client"),
     ERR_ENTRY("WIFI_DIRECT_ERROR_CONNECTION_CANCELED", TIZEN_ERROR_WIFI_DIRECT | 0x10, "Connection canceled by local device"),
 #endif
-#if defined(TIZEN_ERROR_PRIVACY_MANAGER)
-#endif
 #if defined(TIZEN_ERROR_KEY_MANAGER)
     ERR_ENTRY("CKMC_ERROR_SOCKET", TIZEN_ERROR_KEY_MANAGER | 0x01, "Socket error between client and Central Key Manager"),
     ERR_ENTRY("CKMC_ERROR_BAD_REQUEST", TIZEN_ERROR_KEY_MANAGER | 0x02, "Invalid request from client "),
@@ -318,8 +355,6 @@ static err_info err_list[] = {
     ERR_ENTRY("CKMC_ERROR_FILE_SYSTEM", TIZEN_ERROR_KEY_MANAGER | 0x11, "Save key\/certificate\/pkcs12 failed because of file system error"),
     ERR_ENTRY("CKMC_ERROR_UNKNOWN", TIZEN_ERROR_KEY_MANAGER | 0xFF, "The error with unknown reason"),
 #endif
-#if defined(TIZEN_ERROR_PRIVILEGE_INFORMATION)
-#endif
 #if defined(TIZEN_ERROR_CALENDAR)
     ERR_ENTRY("CALENDAR_ERROR_DB_FAILED", TIZEN_ERROR_CALENDAR | 0x02, "No access to the database"),
     ERR_ENTRY("CALENDAR_ERROR_ITERATOR_END", TIZEN_ERROR_CALENDAR | 0x04, "Iterator is on the last position"),
@@ -335,10 +370,8 @@ static err_info err_list[] = {
     ERR_ENTRY("CONTACTS_ERROR_SYSTEM", TIZEN_ERROR_CONTACTS | 0xEF, "Internal system module error"),
     ERR_ENTRY("CONTACTS_ERROR_INTERNAL", TIZEN_ERROR_CONTACTS | 0xFF, "Implementation Error, Temporary Use"),
 #endif
-#if defined(TIZEN_ERROR_STORAGE)   //issue : TIZEN_ERROR_SYSTEM_CLASS
-    ERR_ENTRY("STORAGE_ERROR_OPERATION_FAILED", TIZEN_ERROR_STORAGE | 0x12, "Operation failed"),
-#endif
-#if defined(TIZEN_ERROR_VCONF)
+#if defined (TIZEN_ERROR_STORAGE)
+	ERR_ENTRY("STORAGE_ERROR_OPERATION_FAILED",TIZEN_ERROR_SYSTEM_CLASS | 0x12 ,"Operation failed"),
 #endif
 #if defined(TIZEN_ERROR_DEVICE)
     ERR_ENTRY("DEVICE_ERROR_NOT_INITIALIZED", TIZEN_ERROR_DEVICE | 0x13, "Not initialized"),
@@ -364,7 +397,12 @@ static err_info err_list[] = {
 #if defined(TIZEN_ERROR_CONTEXT)
     ERR_ENTRY("ACTIVITY_ERROR_ALREADY_STARTED", TIZEN_ERROR_CONTEXT | 0x01, "Recognition is already started"),
     ERR_ENTRY("ACTIVITY_ERROR_NOT_STARTED", TIZEN_ERROR_CONTEXT | 0x02, "Recognition is not started"),
-    ERR_ENTRY("ACTIVITY_ERROR_OPERATION_FAILED", TIZEN_ERROR_CONTEXT | 0x04, "Operation failed because of a system error"),
+	ERR_ENTRY("CONTEXT_HISTORY_ERROR_OUT_OF_RANGE",TIZEN_ERROR_CONTEXT | 0x03 ,"Out of range"),
+	ERR_ENTRY("ACTIVITY_ERROR_OPERATION_FAILED",TIZEN_ERROR_CONTEXT | 0x04 ,"Operation failed"),
+	ERR_ENTRY("CONTEXT_TRIGGER_ERROR_RULE_ENABLED",TIZEN_ERROR_CONTEXT | 0x05 ,"Rule is enabled"),
+	ERR_ENTRY("CONTEXT_TRIGGER_ERROR_RULE_NOT_ENABLED",TIZEN_ERROR_CONTEXT | 0x06 ,"Rule is not enabled"),
+	ERR_ENTRY("CONTEXT_TRIGGER_ERROR_INVALID_RULE",TIZEN_ERROR_CONTEXT | 0x07 ,"Invalid rule"),
+	ERR_ENTRY("CONTEXT_TRIGGER_ERROR_RULE_NOT_EXIST",TIZEN_ERROR_CONTEXT | 0x08 ,"Rule does not exist"),
 #endif
 #if defined(TIZEN_ERROR_TELEPHONY)
     ERR_ENTRY("TELEPHONY_ERROR_OPERATION_FAILED", TIZEN_ERROR_TELEPHONY | 0x0001, "Operation failed"),
@@ -374,10 +412,6 @@ static err_info err_list[] = {
     ERR_ENTRY("EFL_UTIL_ERROR_NOT_SUPPORTED_WINDOW_TYPE", TIZEN_ERROR_EFL_UTIL | 0x01, "Window type not supported"),
     ERR_ENTRY("EFL_UTIL_ERROR_SCREENSHOT_INIT_FAIL", TIZEN_ERROR_EFL_UTIL | 0x02, "Screenshot initialization fail"),
     ERR_ENTRY("EFL_UTIL_ERROR_SCREENSHOT_EXECUTION_FAIL", TIZEN_ERROR_EFL_UTIL | 0x03, "Screenshot execution fail"),
-#endif
-#if defined(TIZEN_ERROR_UTILX)
-#endif
-#if defined(TIZEN_ERROR_NATIVE_BUFFER)
 #endif
 #if defined(TIZEN_ERROR_TBM)
 #endif
@@ -408,6 +442,8 @@ static err_info err_list[] = {
     ERR_ENTRY("LOCATIONS_ERROR_SERVICE_NOT_AVAILABLE", TIZEN_ERROR_LOCATION_MANAGER | 0x03, "Location service is not available"),
     ERR_ENTRY("LOCATIONS_ERROR_GPS_SETTING_OFF", TIZEN_ERROR_LOCATION_MANAGER | 0x04, "GPS/WPS setting is not enabled"),
     ERR_ENTRY("LOCATIONS_ERROR_SECURITY_RESTRICTED", TIZEN_ERROR_LOCATION_MANAGER | 0x05, "Restricted by security system policy"),
+	ERR_ENTRY("LOCATION_BOUNDS_ERROR_INCORRECT_TYPE",TIZEN_ERROR_LOCATION_MANAGER | 0x21 ,"Incorrect bounds type for a given call"),
+	ERR_ENTRY("LOCATION_BOUNDS_ERROR_IS_ADDED",TIZEN_ERROR_LOCATION_MANAGER | 0x22 ,"Cannot remove bounds handle from location manager"),
 #endif
 #if defined(TIZEN_ERROR_STT)
     ERR_ENTRY("STT_ERROR_INVALID_STATE", TIZEN_ERROR_STT | 0x01, "Invalid state"),
@@ -455,10 +491,9 @@ static err_info err_list[] = {
     ERR_ENTRY("FEEDBACK_ERROR_NOT_INITIALIZED", TIZEN_ERROR_FEEDBACK | 0x01, "Not initialized"),
 #endif
 #if defined(TIZEN_ERROR_EOM)
-    ERR_ENTRY("EOM_ERROR_INVALID_OUTPUT", TIZEN_ERROR_EOM | 0x01, "Invalid external output instance"),
-    ERR_ENTRY("EOM_ERROR_CONNECTION_FAILURE", TIZEN_ERROR_EOM | 0x02, "Connection failure"),
-    ERR_ENTRY("EOM_ERROR_MESSAGE_SENDING_FAILURE", TIZEN_ERROR_EOM | 0x03, "Message sending failure"),
-    ERR_ENTRY("EOM_ERROR_MESSAGE_OPERATION_FAILURE", TIZEN_ERROR_EOM | 0x04, "Message operation failure"),
+  ERR_ENTRY("EOM_ERROR_CONNECTION_FAILURE",TIZEN_ERROR_EOM | 0x01 ,"Connection failure"),
+  ERR_ENTRY("EOM_ERROR_MESSAGE_SENDING_FAILURE",TIZEN_ERROR_EOM | 0x02 ,"Message sending failure"),
+  ERR_ENTRY("EOM_ERROR_MESSAGE_OPERATION_FAILURE",TIZEN_ERROR_EOM | 0x03 ,"Message operation failure"),
 #endif
 #if defined(TIZEN_ERROR_WIDGET)
     ERR_ENTRY("WIDGET_ERROR_FAULT", TIZEN_ERROR_WIDGET | 0x0001, "Fault - Unable to recover from the error"),
@@ -494,12 +529,15 @@ static err_info err_list[] = {
 #endif
 #if defined(TIZEN_ERROR_SYNC_MANAGER)
     ERR_ENTRY("SYNC_ERROR_SYSTEM", TIZEN_ERROR_SYNC_MANAGER | 0x01, "System error"),
+    ERR_ENTRY("SYNC_ERROR_SYNC_ADAPTER_NOT_FOUND", TIZEN_ERROR_SYNC_MANAGER | 0x02, "Sync adater is not registered"),
 #endif
 #if defined(TIZEN_ERROR_SERVICE_ADAPTOR)
     ERR_ENTRY("SERVICE_ADAPTOR_ERROR_IPC_UNSTABLE", TIZEN_ERROR_SERVICE_ADAPTOR | 0x01, "IPC Connection unstabled"),
     ERR_ENTRY("SERVICE_ADAPTOR_ERROR_PLUGIN_FAILED", TIZEN_ERROR_SERVICE_ADAPTOR | 0x02, "The error occured from Plugin"),
-    ERR_ENTRY("SERVICE_ADAPTOR_ERROR_NOT_AUTHOLIZED", TIZEN_ERROR_SERVICE_ADAPTOR | 0x03, "Need Autholization "),
+	ERR_ENTRY("SERVICE_ADAPTOR_ERROR_NOT_AUTHORIZED",TIZEN_ERROR_SERVICE_ADAPTOR | 0x03 ,"Need Autholization "),
     ERR_ENTRY("SERVICE_ADAPTOR_ERROR_INVALID_STATE", TIZEN_ERROR_SERVICE_ADAPTOR | 0x04, "The handle state is invalid for processing API"),
+    ERR_ENTRY("SERVICE_ADAPTOR_ERROR_SYSTEM", TIZEN_ERROR_SERVICE_ADAPTOR | 0x05, "Internal system module error"),
+    ERR_ENTRY("SERVICE_ADAPTOR_ERROR_INTERNAL", TIZEN_ERROR_SERVICE_ADAPTOR | 0x06, "Implementation Error"),
 #endif
 #if defined(TIZEN_ERROR_ACCOUNT_OAUTH)
     ERR_ENTRY("OAUTH2_ERROR_PARSE_FAILED", TIZEN_ERROR_ACCOUNT_OAUTH | 0x01, "Response parse failed"),
@@ -523,8 +561,46 @@ static err_info err_list[] = {
     ERR_ENTRY("MEDIA_VISION_ERROR_NOT_SUPPORTED_FORMAT", TIZEN_ERROR_MEDIA_VISION | 0x01, "Not supported format"),
     ERR_ENTRY("MEDIA_VISION_ERROR_INTERNAL", TIZEN_ERROR_MEDIA_VISION | 0x02, "Internal error"),
     ERR_ENTRY("MEDIA_VISION_ERROR_INVALID_DATA", TIZEN_ERROR_MEDIA_VISION | 0x03, "Invalid data"),
+    ERR_ENTRY("MEDIA_VISION_ERROR_INVALID_PATH", TIZEN_ERROR_MEDIA_VISION | 0x04, "Invalid path"),
 #endif
-
+#if defined (TIZEN_ERROR_METADATA_EDITOR)
+  ERR_ENTRY("METADATA_EDITOR_ERROR_OPERATION_FAILED",TIZEN_ERROR_METADATA_EDITOR | 0x01 ,"Invalid internal operation"),
+#endif
+#if defined(TIZEN_ERROR_PHONENUMBER_UTILS)
+    ERR_ENTRY("PHONE_NUMBER_ERROR_SYSTEM", TIZEN_ERROR_PHONENUMBER_UTILS | 0xEF, "Internal error"),
+#endif
+#if defined (TIZEN_ERROR_PANEL)
+  ERR_ENTRY("SHARE_PANEL_ERROR_ALREADY_EXISTS",TIZEN_ERROR_PANEL | 0x01 ,"There is already a panel in the conformant"),
+  ERR_ENTRY("SHARE_PANEL_ERROR_NOT_INITIALIZED",TIZEN_ERROR_PANEL | 0x02 ,"The panel is not initialized yet"),
+  ERR_ENTRY("SHARE_PANEL_ERROR_INVALID_OPERATION",TIZEN_ERROR_PANEL | 0x03 ,"Not supported content category"),
+  ERR_ENTRY("ATTACH_PANEL_ERROR_ALREADY_DESTROYED",TIZEN_ERROR_PANEL | 0x05 ,"The panel is already removed"),
+#endif
+#if defined(TIZEN_ERROR_IOTCON)
+    ERR_ENTRY("IOTCON_ERROR_IOTIVITY", TIZEN_ERROR_IOTCON | 0x01, "Internal error"),
+    ERR_ENTRY("IOTCON_ERROR_REPRESENTATION", TIZEN_ERROR_IOTCON | 0x02, "Representation errors"),
+    ERR_ENTRY("IOTCON_ERROR_INVALID_TYPE", TIZEN_ERROR_IOTCON | 0x03, "Invalid type"),
+    ERR_ENTRY("IOTCON_ERROR_ALREADY", TIZEN_ERROR_IOTCON | 0x04, "Already"),
+    ERR_ENTRY("IOTCON_ERROR_DBUS", TIZEN_ERROR_IOTCON | 0x05, "D-Bus errors"),
+    ERR_ENTRY("IOTCON_ERROR_SYSTEM", TIZEN_ERROR_IOTCON | 0x06, "System errors"),
+#endif
+#if defined(TIZEN_ERROR_MEDIA_STREAMER)
+    ERR_ENTRY("MEDIA_STREAMER_ERROR_INVALID_STATE", TIZEN_ERROR_MEDIA_STREAMER | 0x01, "Invalid state"),
+    ERR_ENTRY("MEDIA_STREAMER_ERROR_CONNECTION_FAILED", TIZEN_ERROR_MEDIA_STREAMER | 0x02, "Connection failed"),
+    ERR_ENTRY("MEDIA_STREAMER_ERROR_RESOURCE_CONFLICT", TIZEN_ERROR_MEDIA_STREAMER | 0x03, "Resource conflict"),
+    ERR_ENTRY("MEDIA_STREAMER_ERROR_SEEK_FAILED", TIZEN_ERROR_MEDIA_STREAMER| 0x04, "Seek operation failure"),
+#endif
+#if defined(TIZEN_ERROR_MEDIA_DEMUXER)
+    ERR_ENTRY("MEDIA_STREAMER_ERROR_INVALID_STATE", TIZEN_ERROR_MEDIA_DEMUXER | 0x01, "Invalid state"),
+    ERR_ENTRY("MEDIADEMUXER_ERROR_INVALID_PATH",TIZEN_ERROR_MEDIA_DEMUXER | 0x02, "Invalid path"),
+    ERR_ENTRY("MEDIADEMUXER_ERROR_RESOURCE_LIMIT",TIZEN_ERROR_MEDIA_DEMUXER | 0x03, "Resource limit"),
+    ERR_ENTRY("MEDIADEMUXER_ERROR_SEEK_FAILED", TIZEN_ERROR_MEDIA_DEMUXER | 0x04, "Seek operation failure"),
+    ERR_ENTRY("MEDIADEMUXER_ERROR_DRM_NOT_PERMITTED", TIZEN_ERROR_MEDIA_DEMUXER | 0x05, "Not permitted format"),
+#endif
+#if defined(TIZEN_ERROR_MEDIA_MUXER)
+    ERR_ENTRY("MEDIAMUXER_ERROR_INVALID_STATE", TIZEN_ERROR_MEDIA_DEMUXER| 0x01, "Invalid state"),
+    ERR_ENTRY("MEDIAMUXER_ERROR_INVALID_PATH", TIZEN_ERROR_MEDIA_MUXER | 0x02, "Invalid path"),
+    ERR_ENTRY("MEDIAMUXER_ERROR_RESOURCE_LIMIT",TIZEN_ERROR_MEDIA_MUXER | 0x03, "Resource limit"),
+#endif
     {0, NULL, NULL}
 };
 
@@ -545,14 +621,14 @@ char *_get_error_message(int err_code)
     char *msg = NULL;
     int i, arry_cnt;
     arry_cnt = sizeof(err_list) / sizeof(err_info);
-
-    for (i = 0; i < arry_cnt; i++) {
-        if (err_code == err_list[i].value) {
+	for(i = 0; i < arry_cnt ; i++)
+	{
+		if(err_code == err_list[i].value)
+		{
             msg = err_list[i].msg;
             break;
         }
     }
-
     return msg;
 }
 
@@ -562,22 +638,33 @@ char *get_error_message(int err_code)
     char *tmp = NULL;
     memset(msg, 0x00, sizeof(msg));
 
-    if (err_code >= TIZEN_ERROR_OWNER_DEAD && err_code < 0) {
+	if( err_code >= TIZEN_ERROR_OWNER_DEAD && err_code < 0)
+	{
         if ((~err_code + 1) == -ENOSYS)
+		{
             strncpy(msg, "Invalid operation", strlen("Invalid operation"));
+		}
         else
+		{
             strerror_r(~err_code + 1, msg, sizeof(msg));
-    } else if (err_code >= TIZEN_ERROR_MIN_PLATFORM_ERROR && err_code < TIZEN_ERROR_END_OF_COLLECTION) {
+		}
+	}
+	else if(err_code >= TIZEN_ERROR_MIN_PLATFORM_ERROR && err_code < TIZEN_ERROR_END_OF_COLLECTION)
+	{
         tmp = _get_error_message(err_code);
-
         if (tmp != NULL)
+		{
             strncpy(msg, tmp, strlen(tmp));
-    } else if (err_code >= TIZEN_ERROR_MIN_PLATFORM_MODULE && err_code < -0x009F0000) {
+		}
+	}
+	else if(err_code >= TIZEN_ERROR_MIN_PLATFORM_MODULE && err_code < -0x009F0000)
+	{
         tmp = _get_error_message(err_code);
-
         if (tmp != NULL)
+		{
             strncpy(msg, tmp, strlen(tmp));
-    } else;
-
+		}
+	}
+	else{;}
     return msg;
 }

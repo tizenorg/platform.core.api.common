@@ -102,8 +102,6 @@ extern "C" {
 #define TIZEN_ERROR_PACKAGE_MANAGER	-0x01150000
 /* Tizen Shortcut Error */
 #define TIZEN_ERROR_SHORTCUT		-0x01160000
-/* Tizen UI Gadget Error */
-#define TIZEN_ERROR_UI_GADGET		-0x01170000
 /* Tizen Bundle Error */
 #define TIZEN_ERROR_BUNDLE		-0x01180000
 /* Tizen Data Control Error */
@@ -152,6 +150,12 @@ extern "C" {
 #define TIZEN_ERROR_METADATA_EDITOR     -0x019C0000
 /* Tizen Media Vision Error */
 #define TIZEN_ERROR_MEDIA_VISION        -0x019D0000
+/* Tizen Media MEDIA DEMUXER Error */
+#define TIZEN_ERROR_MEDIA_DEMUXER        -0x019E0000
+/* Tizen Media MEDIA MUXER Error */
+#define TIZEN_ERROR_MEDIA_MUXER        -0x019F0000
+/* Tizen Media MEDIA STREAMER Error */
+#define TIZEN_ERROR_MEDIA_STREAMER        -0x01A00000
 /* Tizen Bluetooth Error */
 #define TIZEN_ERROR_BLUETOOTH		-0x01C00000
 /* Tizen Connection Error */
@@ -168,6 +172,8 @@ extern "C" {
 #define TIZEN_ERROR_WIFI_DIRECT		-0x01C60000
 /* Tizen Smart Card Error */
 #define TIZEN_ERROR_SMARTCARD          -0x01C70000
+/* Tizen IotCon Error */
+#define TIZEN_ERROR_IOTCON	        -0x01C80000
 /* Tizen Privacy Manager Error */
 #define TIZEN_ERROR_PRIVACY_MANAGER	-0x01E00000
 /* Tizen Key Manager Error */
@@ -216,6 +222,10 @@ extern "C" {
 #define TIZEN_ERROR_TBM			-0x02830000
 /* Tizen EOM Error */
 #define TIZEN_ERROR_EOM       		-0x02840000
+/* Tizen PANEL Error */
+#define TIZEN_ERROR_PANEL       -0x02850000
+/* Tizen TZSH Error */
+#define TIZEN_ERROR_TZSH       -0x02860000
 /* Tizen Download Error */
 #define TIZEN_ERROR_DOWNLOAD		-0x02A00000
 /* Tizen WebView Error */

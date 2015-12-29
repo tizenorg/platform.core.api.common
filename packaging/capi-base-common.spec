@@ -1,6 +1,6 @@
 Name:       capi-base-common
 Summary:    Common header files of Tizen Native API
-Version:    0.3.0
+Version:    0.3.1
 Release:    1
 Group:      System/Libraries
 License:    Apache-2.0
@@ -12,7 +12,7 @@ Requires(post):   /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 
 %description
-This is Common header files of Tizen Native API
+Common header files of Tizen Native API
   
 %package devel  
 License:  Apache-2.0
@@ -21,22 +21,26 @@ Group:    System/Libraries
 Requires: %{name} = %{version}-%{release}  
   
 %description devel
-This is Common header files of Tizen Native API
+Common header files of Tizen Native API
 
 %prep
 %setup -q
 cp %{SOURCE1001} .
 
 %build
-MAJORVER=`echo %{version} | awk 'BEGIN {FS="."}{print $1}'`
-%cmake . -DFULLVER=%{version} -DMAJORVER=${MAJORVER}
 
-%__make %{?_smp_mflags}
+MAJORVER=`echo %{version} | awk 'BEGIN {FS="."}{print $1}'`
+
+cmake . -DCMAKE_INSTALL_PREFIX=/usr -DLIB_INSTALL_DIR:PATH=%{_libdir} -DFULLVER=%{version} -DMAJORVER=${MAJORVER}
+
+make %{?jobs:-j%jobs}
 
 %install
+rm -rf %{buildroot}
+
 %make_install
-mkdir -p %{buildroot}%{_datadir}/license
-cp LICENSE %{buildroot}%{_datadir}/license/%{name}
+mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 
 %post -p /sbin/ldconfig
 
@@ -44,12 +48,11 @@ cp LICENSE %{buildroot}%{_datadir}/license/%{name}
 
 %files
 %manifest %{name}.manifest
+/usr/share/license/%{name}
 %{_libdir}/libcapi-base-common.so*
-%{_datadir}/license/%{name}
 
 %files devel
 %manifest %{name}.manifest
-%{_includedir}/*.h
-%{_libdir}/pkgconfig/capi-base-common.pc
-%{_datadir}/license/%{name}
-
+/usr/include/*.h
+/usr/lib/pkgconfig/capi-base-common.pc
+/usr/share/license/%{name}
