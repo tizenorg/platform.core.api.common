@@ -633,7 +633,10 @@ char *get_error_message(int err_code)
 	char *tmp = NULL;
 	memset(msg, 0x00, sizeof(msg));
 
-	if (err_code >= TIZEN_ERROR_OWNER_DEAD && err_code < 0) {
+
+	if (err_code == 0) {
+		strncpy(msg, "Successful", strlen("Successful"));
+	} else if (err_code >= TIZEN_ERROR_OWNER_DEAD && err_code < 0) {
 		if ((~err_code + 1) == -ENOSYS) {
 			strncpy(msg, "Invalid operation", strlen("Invalid operation"));
 		} else {
