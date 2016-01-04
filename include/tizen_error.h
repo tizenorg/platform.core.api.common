@@ -491,6 +491,21 @@ extern "C" {
  * @return The error's message
  *
  * @see #tizen_error_e
+ *
+ * @code
+ *
+ *  char* errMsg;
+ *  location_manager_h location_handle;
+ *  int result = location_manager_create(LOCATION_METHOD_GPS, &location_handle);
+ *
+ *  if (LOCATIONS_ERROR_NONE != result)
+ *  {
+ *    errMsg = get_error_message(result);
+ *    dlog_print(DLOG_INFO, "MyTag", "%s", errMsg);
+ *  }
+ *
+ * @endcode
+ *
  */
 	char *get_error_message(int err);
 
