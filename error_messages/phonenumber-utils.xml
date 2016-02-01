@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package uri="platform/core/telephony/phonenumber-utils">
+	<error name="PHONE_NUMBER_ERROR_SYSTEM">
+		<value>TIZEN_ERROR_PHONENUMBER_UTILS | 0xEF</value>
+		<msg>Internal error</msg>
+	</error>
+</package>
+
