@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package uri="platform/core/uifw/tts">
+	<error name="TTS_ERROR_INVALID_STATE">
+		<value>TIZEN_ERROR_TTS | 0x01</value>
+		<msg>Invalid state</msg>
+	</error>
+	<error name="TTS_ERROR_INVALID_VOICE">
+		<value>TIZEN_ERROR_TTS | 0x02</value>
+		<msg>Invalid voice</msg>
+	</error>
+	<error name="TTS_ERROR_ENGINE_NOT_FOUND">
+		<value>TIZEN_ERROR_TTS | 0x03</value>
+		<msg>No available engine</msg>
+	</error>
+	<error name="TTS_ERROR_OPERATION_FAILED">
+		<value>TIZEN_ERROR_TTS | 0x04</value>
+		<msg>Operation failed</msg>
+	</error>
+	<error name="TTS_ERROR_AUDIO_POLICY_BLOCKED">
+		<value>TIZEN_ERROR_TTS | 0x05</value>
+		<msg>Audio policy blocked</msg>
+	</error>
+</package>
