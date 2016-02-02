@@ -85,6 +85,8 @@ extern "C" {
 #define TIZEN_ERROR_ACCOUNT_OAUTH       -0x01010000
 /* Tizen SYNC MANAGER Error */
 #define TIZEN_ERROR_SYNC_MANAGER        -0x01020000
+/* Tizen FIDO Error */
+#define TIZEN_ERROR_FIDO		-0x01030000
 /* Tizen Application Error */
 #define TIZEN_ERROR_APPLICATION         -0x01100000
 /* Tizen Application Manager Error */
@@ -145,14 +147,16 @@ extern "C" {
 #define TIZEN_ERROR_MEDIACODEC          -0x019B0000
 /* Tizen Metadata Editor Error */
 #define TIZEN_ERROR_METADATA_EDITOR     -0x019C0000
-/* Tizen Media Vision Error */
+/* Tizen Vision Error */
 #define TIZEN_ERROR_MEDIA_VISION        -0x019D0000
-/* Tizen Media MEDIA DEMUXER Error */
+/* Tizen MEDIA DEMUXER Error */
 #define TIZEN_ERROR_MEDIA_DEMUXER        -0x019E0000
-/* Tizen Media MEDIA MUXER Error */
+/* Tizen MEDIA MUXER Error */
 #define TIZEN_ERROR_MEDIA_MUXER        -0x019F0000
-/* Tizen Media MEDIA STREAMER Error */
+/* Tizen MEDIA STREAMER Error */
 #define TIZEN_ERROR_MEDIA_STREAMER        -0x01A00000
+/* Tizen MEDIA STREAMRECORDER Error */
+#define TIZEN_ERROR_STREAMRECORDER		-0x01A10000
 /* Tizen Bluetooth Error */
 #define TIZEN_ERROR_BLUETOOTH		-0x01C00000
 /* Tizen Connection Error */
@@ -171,6 +175,14 @@ extern "C" {
 #define TIZEN_ERROR_SMARTCARD          -0x01C70000
 /* Tizen IotCon Error */
 #define TIZEN_ERROR_IOTCON	        -0x01C80000
+/* Tizen SSDP Error */
+#define TIZEN_ERROR_SSDP		-0x01C90000
+/* Tizen DNSSD Error */
+#define TIZEN_ERROR_DNSSD		-0x01CA0000
+/* Tizen VPNSVC Error */
+#define TIZEN_ERROR_VPNSVC		-0x01CB0000
+/* Tizen MTP Error */
+#define TIZEN_ERROR_MTP		-0x01CC0000
 /* Tizen Privacy Manager Error */
 #define TIZEN_ERROR_PRIVACY_MANAGER	-0x01E00000
 /* Tizen Key Manager Error */
@@ -206,7 +218,7 @@ extern "C" {
 /* Tizen Health Error */
 #define TIZEN_ERROR_HEALTH		-0x02490000
 /* Tizen Feedback Error */
-#define TIZEN_ERROR_FEEDBACK            -0x024A0000
+#define TIZEN_ERROR_FEEDBACK		-0x024A0000
 /* Tizen Telephony Error */
 #define TIZEN_ERROR_TELEPHONY		-0x02600000
 /* Tizen EFL Util Error */
@@ -245,6 +257,8 @@ extern "C" {
 #define TIZEN_ERROR_WIDGET              -0x02F40000
 /* Tizen Voice Control Error */
 #define TIZEN_ERROR_VOICE_CONTROL       -0x02F50000
+/* Tizen PASS Error */
+#define TIZEN_ERROR_PASS		-0x02F60000
 
 /**
  * @brief Enumeration for tizen errors.
