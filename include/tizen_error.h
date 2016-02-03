@@ -257,8 +257,6 @@ extern "C" {
 #define TIZEN_ERROR_WIDGET              -0x02F40000
 /* Tizen Voice Control Error */
 #define TIZEN_ERROR_VOICE_CONTROL       -0x02F50000
-/* Tizen PASS Error */
-#define TIZEN_ERROR_PASS		-0x02F60000
 
 /**
  * @brief Enumeration for tizen errors.
