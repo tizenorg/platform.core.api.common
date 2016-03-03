@@ -18,7 +18,7 @@
 	</error>
 	<error name="AUDIO_IO_ERROR_INVALID_STATE">
 		<value>TIZEN_ERROR_AUDIO_IO | 0x05</value>
-		<msg>Invalid statea</msg>
+		<msg>Invalid state</msg>
 	</error>
 	<error name="AUDIO_IO_ERROR_NOT_SUPPORTED_TYPE">
 		<value>TIZEN_ERROR_AUDIO_IO | 0x06</value>
