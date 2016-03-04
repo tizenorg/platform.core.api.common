@@ -62,7 +62,7 @@
 	</error>
 	<error name="CKMC_ERROR_NOT_EXPORTABLE">
 		<value>TIZEN_ERROR_KEY_MANAGER | 0x10</value>
-		<msg>Key\/certifificate\/pkcs12\/data is not exportable. It could not be returned to client</msg>
+		<msg>The data is saved as unexportable so it cannot be leaked</msg>
 	</error>
 	<error name="CKMC_ERROR_FILE_SYSTEM">
 		<value>TIZEN_ERROR_KEY_MANAGER | 0x11</value>
