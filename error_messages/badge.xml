@@ -20,4 +20,8 @@
 		<value>TIZEN_ERROR_BADGE | 0x05</value>
 		<msg>Error service not ready</msg>
 	</error>
+	<error name="BADGE_ERROR_INVALID_PACKAGE">
+		<value>TIZEN_ERROR_BADGE | 0x06</value>
+		<msg>The caller application is not signed with the certificate of the badge owner</value>
+	</error>
 </package>
