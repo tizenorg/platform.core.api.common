@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package uri="apps/native/attach-panel">
+<package uri="profile/mobile/apps/native/attach-panel">
 	<error name="ATTACH_PANEL_ERROR_ALREADY_EXISTS">
 		<value>TIZEN_ERROR_PANEL | 0x01</value>
 		<msg>There is already a panel in the conformant</msg>
