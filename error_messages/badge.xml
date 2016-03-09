@@ -22,6 +22,6 @@
 	</error>
 	<error name="BADGE_ERROR_INVALID_PACKAGE">
 		<value>TIZEN_ERROR_BADGE | 0x06</value>
-		<msg>The caller application is not signed with the certificate of the badge owner</value>
+		<msg>The caller application is not signed with the certificate of the badge owner</msg>
 	</error>
 </package>

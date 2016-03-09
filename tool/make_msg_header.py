@@ -28,15 +28,17 @@ fp.write( "} err_info;\n\n" )
 fp.write( "static err_info err_list[] = {\n" );
 for root, dirs, files in os.walk( msgpath ):
 	for file in files:
+		print ">>>> " + file
 		targetXML = open( os.path.join( msgpath, file ) )
 		tree = parse( targetXML )
-		errorroot = tree.getroot()
+		errorroot = tree.getroot()		
 
 		for error in errorroot.findall( "error" ):
 			fp.write( "\tERR_ENTRY(\"" )
 			fp.write( error.get( "name" ) + "\", ")
 			fp.write( error.findtext( "value" ) + ", \"" )
 			fp.write( error.findtext( "msg" ) + "\"),\n" )
+			print error.get( "name" )
 
 fp.write( "\t{0, NULL, NULL}\n" )
 fp.write( "};\n" )
