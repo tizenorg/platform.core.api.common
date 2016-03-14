@@ -193,6 +193,8 @@ extern "C" {
 #define TIZEN_ERROR_CALENDAR		-0x02000000
 /* Tizen Contacts Error */
 #define TIZEN_ERROR_CONTACTS		-0x02010000
+/* Tizen Phonenumber utils Error */
+#define TIZEN_ERROR_PHONENUMBER_UTILS		-0x02020000
 /* Tizen Storage Error */
 #define TIZEN_ERROR_STORAGE		-0x02200000
 /* Tizen Vconf Error */
