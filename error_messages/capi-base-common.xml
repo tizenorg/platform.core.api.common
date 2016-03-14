@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package uri="platform/core/api/common">
+	<error name="TIZEN_ERROR_NONE">
+		<value>TIZEN_ERROR_NONE</value>
+		<msg>Successful</msg>
+	</error>
 	<error name="TIZEN_ERROR_UNKNOWN">
 		<value>TIZEN_ERROR_UNKNOWN</value>
 		<msg>Unknown error</msg>
