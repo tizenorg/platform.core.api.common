@@ -183,6 +183,8 @@ extern "C" {
 #define TIZEN_ERROR_VPNSVC		-0x01CB0000
 /* Tizen MTP Error */
 #define TIZEN_ERROR_MTP		-0x01CC0000
+/* Tizen Http Error */
+#define TIZEN_ERROR_HTTP		-0x01CD0000
 /* Tizen Privacy Manager Error */
 #define TIZEN_ERROR_PRIVACY_MANAGER	-0x01E00000
 /* Tizen Key Manager Error */
