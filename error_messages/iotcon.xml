@@ -16,10 +16,6 @@
 		<value>TIZEN_ERROR_IOTCON | 0x04</value>
 		<msg>Already</msg>
 	</error>
-	<error name="IOTCON_ERROR_DBUS">
-		<value>TIZEN_ERROR_IOTCON | 0x05</value>
-		<msg>D-Bus errors</msg>
-	</error>
 	<error name="IOTCON_ERROR_SYSTEM">
 		<value>TIZEN_ERROR_IOTCON | 0x06</value>
 		<msg>System errors</msg>
