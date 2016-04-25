@@ -53,5 +53,5 @@ privatepath = os.path.join( curpath, "../include/private/" )
 if not os.path.isdir( privatepath ):
 	os.mkdir( privatepath )
 
-os.remove( privatepath + "tizen_error_private.h" )
-shutil.move( headerpath, privatepath )
+# os.remove( privatepath + "tizen_error_private.h" )
+# shutil.move( headerpath, privatepath )
