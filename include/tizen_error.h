@@ -157,6 +157,8 @@ extern "C" {
 #define TIZEN_ERROR_MEDIA_STREAMER        -0x01A00000
 /* Tizen MEDIA STREAMRECORDER Error */
 #define TIZEN_ERROR_STREAMRECORDER		-0x01A10000
+/* Tizen MEDIA STREAMRECORDER Error */
+#define TIZEN_ERROR_MEDIA_TOOL		-0x01A20000
 /* Tizen Bluetooth Error */
 #define TIZEN_ERROR_BLUETOOTH		-0x01C00000
 /* Tizen Connection Error */
