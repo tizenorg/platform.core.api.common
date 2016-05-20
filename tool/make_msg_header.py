@@ -21,8 +21,8 @@ fp.write( "#endif\n\n" )
 fp.write( "#define ERR_ENTRY(name, value, msg) {value, name, msg}\n\n" )
 fp.write( "typedef struct tizen_err_info {\n" )
 fp.write( "\tint value;\n" )
-fp.write( "\tconst char *name;\n" )
-fp.write( "\tconst char *msg;\n" )
+fp.write( "\tchar *name;\n" )
+fp.write( "\tchar *msg;\n" )
 fp.write( "} err_info;\n\n" )
 
 fp.write( "static err_info err_list[] = {\n" );

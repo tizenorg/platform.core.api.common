@@ -27,8 +27,8 @@ extern "C" {
 
 typedef struct tizen_err_info {
 	int value;
-	const char *name;
-	const char *msg;
+	char *name;
+	char *msg;
 } err_info;
 
 static err_info err_list[] = {
@@ -276,7 +276,7 @@ static err_info err_list[] = {
 	ERR_ENTRY("CKMC_ERROR_INVALID_FORMAT", TIZEN_ERROR_KEY_MANAGER | 0x0E, "A provided file or binary has not a valid format"),
 	ERR_ENTRY("CKMC_ERROR_FILE_ACCESS_DENIED", TIZEN_ERROR_KEY_MANAGER | 0x0F, "A provided file doesn't exist or cannot be accessed in the file system"),
 	ERR_ENTRY("CKMC_ERROR_NOT_EXPORTABLE", TIZEN_ERROR_KEY_MANAGER | 0x10, "The data is saved as unexportable so it cannot be leaked"),
-	ERR_ENTRY("CKMC_ERROR_FILE_SYSTEM", TIZEN_ERROR_KEY_MANAGER | 0x11, "Save key\/certificate\/pkcs12 failed because of file system error"),
+	ERR_ENTRY("CKMC_ERROR_FILE_SYSTEM", TIZEN_ERROR_KEY_MANAGER | 0x11, "Save key/certificate/pkcs12 failed because of file system error"),
 	ERR_ENTRY("CKMC_ERROR_UNKNOWN", TIZEN_ERROR_KEY_MANAGER | 0xFF, "The error with unknown reason"),
 	ERR_ENTRY("MEDIA_CONTENT_ERROR_DB_FAILED", TIZEN_ERROR_MEDIA_CONTENT | 0x01, "DB operation failed "),
 	ERR_ENTRY("MEDIA_CONTENT_ERROR_DB_BUSY", TIZEN_ERROR_MEDIA_CONTENT | 0x02, "DB operation BUSY"),

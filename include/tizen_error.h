@@ -43,7 +43,7 @@ extern "C" {
 /* Check if error or not */
 #define TIZEN_ERROR_IS_ERROR(x) (!TIZEN_ERROR_IS_OK(x))
 
-/* Check if slp error or not */
+/* Check if tizen error or not */
 #define TIZEN_ERROR_IS_PLATFORM_ERROR(x) (TIZEN_ERROR_MIN_PLATFORM_ERROR <= (x) && (x) < 0)
 
 /* Application Error Class */

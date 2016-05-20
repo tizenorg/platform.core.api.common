@@ -66,7 +66,7 @@
 	</error>
 	<error name="CKMC_ERROR_FILE_SYSTEM">
 		<value>TIZEN_ERROR_KEY_MANAGER | 0x11</value>
-		<msg>Save key\/certificate\/pkcs12 failed because of file system error</msg>
+		<msg>Save key/certificate/pkcs12 failed because of file system error</msg>
 	</error>
 	<error name="CKMC_ERROR_UNKNOWN">
 		<value>TIZEN_ERROR_KEY_MANAGER | 0xFF</value>
