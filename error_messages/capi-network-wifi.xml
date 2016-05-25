@@ -32,5 +32,9 @@
 		<value>TIZEN_ERROR_WIFI | 0x0309</value>
 		<msg>Restricted by security system policy</msg>
 	</error>
+	<error name="WIFI_ERROR_INVALID_OPERATION">
+		<value>TIZEN_ERROR_WIFI | 0x0310</value>
+		<msg>Operation is invalid</msg>
+	</error>
 </package>
 
