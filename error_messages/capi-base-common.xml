@@ -20,5 +20,9 @@
 		<value>TIZEN_ERROR_USER_NOT_CONSENTED</value>
 		<msg>Not consented</msg>
 	</error>
+	<error name="TIZEN_ERROR_DEVICE_POLICY_RESTRICTION">
+		<value>TIZEN_ERROR_DEVICE_POLICY_RESTRICTION</value>
+		<msg>Restriction by Device Policy</msg>
+	</error>
 </package>
 
