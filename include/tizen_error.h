@@ -193,6 +193,8 @@ extern "C" {
 #define TIZEN_ERROR_KEY_MANAGER		-0x01E10000
 /* Tizen PRIVILEGE INFO Error */
 #define TIZEN_ERROR_PRIVILEGE_INFORMATION -0x01E20000
+/* Tizen CSR Error */
+#define TIZEN_ERROR_CSR -0x01E30000
 /* Tizen Calendar Error */
 #define TIZEN_ERROR_CALENDAR		-0x02000000
 /* Tizen Contacts Error */
