@@ -8,5 +8,9 @@
 		<value>TIZEN_ERROR_SENSOR | 0x06</value>
 		<msg>Operation failed</msg>
 	</error>
+	<error name="SENSOR_ERROR_NOT_AVAILABLE">
+		<value>TIZEN_ERROR_SENSOR | 0x07</value>
+		<msg>This sensor is supported, but currently not available</msg>
+	</error>
 </package>
 
