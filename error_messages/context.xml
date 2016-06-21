@@ -24,5 +24,13 @@
 		<value>TIZEN_ERROR_CONTEXT | 0x08</value>
 		<msg>Rule does not exist</msg>
 	</error>
+	<error name="CONTEXT_TRIGGER_ERROR_DATA_EXIST">
+		<value>TIZEN_ERROR_CONTEXT | 0x09</value>
+		<msg>Data exist</msg>
+	</error>
+	<error name="CONTEXT_TRIGGER_ERROR_INVALID_DATA">
+		<value>TIZEN_ERROR_CONTEXT | 0x0a</value>
+		<msg>Invalid data</msg>
+	</error>
 </package>
 
