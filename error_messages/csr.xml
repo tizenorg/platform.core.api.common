@@ -24,16 +24,20 @@
 		<value>TIZEN_ERROR_CSR | 0x06</value>
 		<msg>Removing file or application is failed</msg>
 	</error>
-	<error name="CSR_ERROR_FILE_DO_NOT_EXIST">
+	<error name="CSR_ERROR_USER_RESPONSE_FAILED">
 		<value>TIZEN_ERROR_CSR | 0x07</value>
+		<msg>Getting user response is failed</msg>
+	</error>
+	<error name="CSR_ERROR_FILE_DO_NOT_EXIST">
+		<value>TIZEN_ERROR_CSR | 0x08</value>
 		<msg>File not exist</msg>
 	</error>
 	<error name="CSR_ERROR_FILE_CHANGED">
-		<value>TIZEN_ERROR_CSR | 0x08</value>
+		<value>TIZEN_ERROR_CSR | 0x09</value>
 		<msg>File changed after detection</msg>
 	</error>
 	<error name="CSR_ERROR_FILE_SYSTEM">
-		<value>TIZEN_ERROR_CSR | 0x09</value>
+		<value>TIZEN_ERROR_CSR | 0x10</value>
 		<msg>File type is invalid</msg>
 	</error>
 	<error name="CSR_ERROR_ENGINE_PERMISSION">
