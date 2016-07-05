@@ -1,6 +1,6 @@
 Name:       capi-base-common
 Summary:    Common header files of Tizen Native API
-Version:    0.4.9
+Version:    0.4.10
 Release:    1
 Group:      Base
 License:    Apache-2.0
@@ -48,9 +48,9 @@ cp LICENSE %{buildroot}/usr/share/license/%{name}
 %files
 %manifest %{name}.manifest
 /usr/share/license/%{name}
-%{_libdir}/libcapi-base-common.so*
+%{_libdir}/libcapi-base-common.so.*
 
 %files devel
-%manifest %{name}.manifest
 %{_includedir}/*.h
 %{_libdir}/pkgconfig/capi-base-common.pc
+%{_libdir}/libcapi-base-common.so
