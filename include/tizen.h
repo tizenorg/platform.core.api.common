@@ -22,4 +22,13 @@
 #ifndef EXPORT_API
 #define EXPORT_API __attribute__((__visibility__("default")))
 #endif
+
+#ifndef DEPRECATED_API
+#define DEPRECATED_API __attribute__((__visibility__("default"), deprecated))
+#endif
+
+#ifndef DEPRECATED_TYPE
+#define DEPRECATED_TYPE __attribute__((deprecated))
+#endif
+
 #endif // __TIZEN_H__
