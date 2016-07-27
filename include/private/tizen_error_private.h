@@ -376,7 +376,7 @@ static err_info err_list[] = {
 	ERR_ENTRY("I18N_ERROR_ILLEGAL_CHAR_FOUND", TIZEN_ERROR_UTILITY_ICU | 0x10, "Character conversion: Illegal input sequence/combination of input units"),
 	ERR_ENTRY("I18N_ERROR_INVALID_TABLE_FORMAT", TIZEN_ERROR_UTILITY_ICU | 0x11, "Conversion table file found, but corrupted"),
 	ERR_ENTRY("I18N_ERROR_INVALID_TABLE_FILE", TIZEN_ERROR_UTILITY_ICU | 0x12, "Conversion table file not found"),
-	ERR_ENTRY("I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE", TIZEN_ERROR_UTILITY_ICU | 0x13, "ISO-2022 illlegal escape sequence"),
+	ERR_ENTRY("I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE", TIZEN_ERROR_UTILITY_ICU | 0x13, "ISO-2022 illegal escape sequence"),
 	ERR_ENTRY("I18N_ERROR_UNSUPPORTED_ESCAPE_SEQUENCE", TIZEN_ERROR_UTILITY_ICU | 0x14, "ISO-2022 unsupported escape sequence"),
 	ERR_ENTRY("I18N_ERROR_NO_SPACE_AVAILABLE", TIZEN_ERROR_UTILITY_ICU | 0x15, "No space available for in-buffer expansion for Arabic shaping"),
 	ERR_ENTRY("I18N_ERROR_CE_NOT_FOUND", TIZEN_ERROR_UTILITY_ICU | 0x16, "Currently used only while setting variable top, but can be used generally"),
